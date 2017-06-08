@@ -27,7 +27,7 @@ public class Test {
 		};
 		java.util.List<String> strings = new ArrayList<String>() {
 			{
-				add("AB1231");
+				add("ABC");
 				add("1231");
 				add("1231");
 				add("1231");
