@@ -10,6 +10,11 @@ import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multiset;
 
+/**
+ * Functions[函数]和Predicates[断言]
+ * @author wch
+ *
+ */
 public class TestFunction {
 
 	public static void main(String[] args) {
