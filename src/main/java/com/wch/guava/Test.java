@@ -35,7 +35,7 @@ public class Test {
 		};
 		Multiset<Integer> lengths = HashMultiset.create(
 				 Iterables.transform(Iterables.filter(strings, allCaps), lengthFunction));
-		
+		//返回全大写字母的格式的字符串长度的数组的
 		System.out.println(lengths);
 	}
 }
