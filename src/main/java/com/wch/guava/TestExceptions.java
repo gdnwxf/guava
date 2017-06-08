@@ -21,10 +21,13 @@ public class TestExceptions {
 		} catch (Throwable t) {
 		    Throwables.throwIfInstanceOf(t, IOException.class);
 		    Throwables.throwIfInstanceOf(t, SQLException.class);
+		    //处理多重异常的情况
 		    Throwables.throwIfUnchecked(t);
 		}
+		
+		
 	}
-
+	
 	private static void someMethodThatCouldThrowAnything() throws IKnowWhatToDoWithThisException {
 		
 		
