@@ -1,5 +1,6 @@
 package com.wch.guava;
 
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,6 +18,7 @@ import java.util.Map;
 import java.util.Queue;
 
 import com.google.common.base.Function;
+import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.Invokable;
 import com.google.common.reflect.Reflection;
 import com.google.common.reflect.TypeParameter;
@@ -29,7 +31,7 @@ import com.google.common.reflect.TypeToken;
  */
 public class TestReflection {
 
-	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
+	public static void main(String[] args) throws NoSuchMethodException, SecurityException, IOException {
 		
 		TypeToken<String> stringTok = TypeToken.of(String.class);
 		TypeToken<Integer> intTok = TypeToken.of(Integer.class);
@@ -146,6 +148,17 @@ public class TestReflection {
 		 */
 		FooInterface foo2 = Reflection.newProxy(FooInterface.class, invocationHandler);
 		foo2.doAdd(100, 10000);
+		
+		/**
+		 * 处理包下面的class的信息
+		 * 
+		 */
+		ClassPath classpath = ClassPath.from(TestReflection.class.getClassLoader()); // scans the class path used by classloader
+		for (ClassPath.ClassInfo classInfo : classpath.getTopLevelClasses("com.wch.guava")) {
+			System.out.println(classInfo);
+		}
+		
+		
 		System.out.println("end");
 	}
 	
