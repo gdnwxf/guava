@@ -99,8 +99,9 @@ public class TestMultiset {
 		
 		/**
 		 * 不可改变的集合
+		 * <String,Number>builder() 实现泛型的结构
 		 */
-		ImmutableMap<Object, Object> im = ImmutableMap.builder().put("321321", 1231).build();
+		ImmutableMap<String, Number> im = ImmutableMap.<String,Number>builder().put("321321", 1231).build();
 		
 		
 	}
