@@ -12,7 +12,16 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 
 /**
- * <pre>ListenableFuture</pre>
+ * <pre>ListenableFuture
+ * 
+ * 方法	描述	参考
+	transform(ListenableFuture<A>, AsyncFunction<A, B>, Executor)*	返回一个新的ListenableFuture ，该ListenableFuture 返回的result是由传入的AsyncFunction 参数指派到传入的 ListenableFuture中.	transform(ListenableFuture<A>, AsyncFunction<A, B>)
+	transform(ListenableFuture<A>, Function<A, B>, Executor)	返回一个新的ListenableFuture ，该ListenableFuture 返回的result是由传入的Function 参数指派到传入的 ListenableFuture中.	transform(ListenableFuture<A>, Function<A, B>)
+	allAsList(Iterable<ListenableFuture<V>>)	返回一个ListenableFuture ，该ListenableFuture 返回的result是一个List，List中的值是每个ListenableFuture的返回值，假如传入的其中之一fails或者cancel，这个Future fails 或者canceled	allAsList(ListenableFuture<V>...)
+	successfulAsList(Iterable<ListenableFuture<V>>)	返回一个ListenableFuture ，该Future的结果包含所有成功的Future，按照原来的顺序，当其中之一Failed或者cancel，则用null替代	successfulAsList(ListenableFuture<V>...)
+ * 
+ * 
+ * </pre>
  * @author qinghao
  *
  */
