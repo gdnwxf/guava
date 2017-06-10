@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.google.common.collect.AbstractIterator;
 import com.google.common.collect.AbstractSequentialIterator;
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
+import com.google.common.collect.PeekingIterator;
 
 /**
  * 
@@ -55,6 +58,36 @@ public class TestIterator {
 		System.out.println(1 << 30);
 		
 		System.out.println(1 == 1 << 30);
+		
+		
+		/**
+		 * <pre>
+		 *    通过内部状态实现 peek() ;
+		 *    if (!hasPeeked) {
+		 *      return iterator.next();
+		 *    }
+		 *    E result = peekedElement;
+		 *    hasPeeked = false;
+		 *    peekedElement = null;
+		 * </pre>
+		 * 
+		 * PreOrderIterator  
+		 * BreadthFirstIterator
+		 * PeekingIterator
+		 * 
+		 */
+		List<String> result = Lists.newArrayList("123","acv","jhsdajdsa");
+		PeekingIterator<String> iter = Iterators.peekingIterator(result.iterator());
+		while (iter.hasNext()) {
+			String current = iter.next();
+		    while (iter.hasNext() && iter.peek().equals(current)) {
+		        //跳过重复的元素
+		        iter.next();
+		    }
+		    System.out.println("current" + current);
+		}
+		 
+		 
 	}
 	
 	
